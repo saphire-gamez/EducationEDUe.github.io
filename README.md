@@ -1,2 +1,2 @@
-# Gamehub
-This website is for... educational purposes...
+# EducationEDUe
+This website is for education. Period
