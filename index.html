@@ -3,106 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EducationEDUe's Calculatorr</title>
+<title>EducationEdue Calculator</title>
 <style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f4;
-    }
-    .calculator {
-        border: 1px solid #888;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .output {
-        width: 220px;
-        height: 30px;
-        margin-bottom: 10px;
-        text-align: right;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 18px;
-        background-color: #e9e9e9;
-    }
-    button {
-        width: 50px;
-        height: 50px;
-        margin: 3px;
-        font-size: 18px;
-        border: none;
-        border-radius: 5px;
-        background-color: #ddd;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: #ccc;
-    }
-    .special {
-        background-color: #ff9800;
-        color: white;
-    }
-    .special:hover {
-        background-color: #e68900;
-    }
+  body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .calculator {
+    margin: 50px auto;
+    width: 300px;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #555;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.5em;
+    text-align: right;
+  }
+  #poweredBy {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #888;
+  }
 </style>
 </head>
 <body>
 <div class="calculator">
-    <div class="output" id="result">0</div>
-    <button onclick="appendNumber('1')">1</button>
-    <button onclick="appendNumber('2')">2</button>
-    <button onclick="appendNumber('3')">3</button>
-    <button class="special" onclick="setOperation('+')">+</button><br>
-    <button onclick="appendNumber('4')">4</button>
-    <button onclick="appendNumber('5')">5</button>
-    <button onclick="appendNumber('6')">6</button>
-    <button class="special" onclick="setOperation('-')">-</button><br>
-    <button onclick="appendNumber('7')">7</button>
-    <button onclick="appendNumber('8')">8</button>
-    <button onclick="appendNumber('9')">9</button>
-    <button class="special" onclick="setOperation('*')">*</button><br>
-    <button onclick="appendNumber('0')">0</button>
-    <button onclick="calculate()">=</button>
-    <button class="special" onclick="clearResult()">C</button>
-    <button class="special" onclick="location.href='https://educationedue.github.io/help'">%</button>
+  <input type="text" id="result" disabled>
+  <br>
+  <button onclick="addToResult('1')">1</button>
+  <button onclick="addToResult('2')">2</button>
+  <button onclick="addToResult('3')">3</button>
+  <br>
+  <button onclick="addToResult('4')">4</button>
+  <button onclick="addToResult('5')">5</button>
+  <button onclick="addToResult('6')">6</button>
+  <br>
+  <button onclick="addToResult('7')">7</button>
+  <button onclick="addToResult('8')">8</button>
+  <button onclick="addToResult('9')">9</button>
+  <br>
+  <button onclick="addToResult('0')">0</button>
+  <button onclick="addToResult('+')">+</button>
+  <button onclick="addToResult('-')">-</button>
+  <br>
+  <button onclick="addToResult('*')">*</button>
+  <button onclick="addToResult('/')">/</button>
+  <button onclick="calculate()">=</button>
+  <button onclick="clearCalculator()">C</button>
+  <br>
+  <button onclick="redirectToWebsite()">%</button>
+  <div id="poweredBy">Powered By SimpleMath</div>
 </div>
 
 <script>
-    let currentOperation = '';
-    let currentInput = '';
-    
-    function appendNumber(number) {
-        currentInput += number;
-        document.getElementById('result').innerText = currentInput;
-    }
+let currentExpression = '';
 
-    function setOperation(op) {
-        currentOperation = op;
-        currentInput += ' ' + op + ' ';
-        document.getElementById('result').innerText = currentInput;
-    }
+function addToResult(value) {
+  currentExpression += value;
+  document.getElementById('result').value = currentExpression;
+}
 
-    function clearResult() {
-        currentInput = '';
-        document.getElementById('result').innerText = '0';
-    }
+function calculate() {
+  const result = document.getElementById("result");
+  result.value = "Calculating...";
 
-    function calculate() {
-        try {
-            currentInput = eval(currentInput);
-            document.getElementById('result').innerText = currentInput;
-        } catch (error) {
-            document.getElementById('result').innerText = 'Error';
-        }
+  setTimeout(() => {
+    try {
+      const calculatedResult = eval(currentExpression);
+      result.value = calculatedResult;
+      currentExpression = calculatedResult;
+    } catch (error) {
+      result.value = "Error";
     }
+  }, 1000); // Delay for 1 second before displaying the result
+}
+
+function clearCalculator() {
+  currentExpression = '';
+  document.getElementById('result').value = '';
+}
+
+function redirectToWebsite() {
+  window.location.href = "https://educationedue.github.io/help";
+}
 </script>
+
 </body>
 </html>
