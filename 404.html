@@ -1,48 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <title>404</title>
-        <style>
-            body{
-            background-color: #202124;
-            color: #ffffff;
-            }
-            .heading {
-               text-align: center;
-               position: fixed;
-               width: 100%;
-                        }
-            
-            .footer {
-               position: fixed;
-               left: 0;
-               bottom:0;
-               width: 100%;
-               text-align: center;
-            }
-                        a:link {
-              color: #8ab4f8;
-              background-color: transparent;
-              text-decoration: none;
-            }
-            a:visited {
-              color: #c58af9;
-              background-color: transparent;
-              text-decoration: none;
-            }
-            a:hover {
-              color: #c58af9;
-              background-color: transparent;
-              text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="heading">
-            <h1>This Page doesn't exist ¯\_(ツ)_/¯</h1>
-        </div>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 Page Not Found</title>
+<style>
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 100px;
+}
 
-    </body>
+.glitch {
+    font-size: 100px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #00ff00;
+}
+
+.glitch::before {
+    z-index: -2;
+    mix-blend-mode: screen;
+    animation: glitch 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch {
+    2%, 64% {
+        transform: translate(2px, 0) skew(0deg) scale(1);
+    }
+    4%, 60% {
+        transform: translate(-2px, 0) skew(0deg) scale(1);
+    }
+    62% {
+        transform: translate(0, 0) skew(5deg) scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="glitch" title="404 Page Not Found">404 Page Not Found</div>
+</body>
 </html>
