@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="icon" type="image/x-icon" href="resources/google.webp">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Tab Cloaking and Redirection Settings</h1>
+    <form id="settingsForm">
+        <label for="tabTitle">Enter New Tab Title:</label>
+        <input type="text" id="tabTitle" placeholder="New Tab Title">
+        <label for="websiteURL">Enter Website URL:</label>
+        <input type="text" id="websiteURL" placeholder="https://educationedue.github.io/courses">
+        <label for="faviconURL">Enter Favicon URL:</label>
+        <input type="text" id="faviconURL" placeholder="Enter Favicon URL">
+        <button type="submit">Cloak Tab</button>
+    </form>
+
+    <button id="openAboutBlankButton">Open Website in about:blank</button>
+    <button id="goBackButton">Go back to courses</button>
+
+    <script>
+    // Handle form submission
+    document.getElementById('settingsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get user inputs
+        const newTabTitle = document.getElementById('tabTitle').value;
+        const newWebsiteURL = document.getElementById('websiteURL').value;
+        const newFaviconURL = document.getElementById('faviconURL').value;
+
+        // Update tab title and favicon, then open redirected URL in a new tab
+        document.title = newTabTitle;
+        document.getElementById('favicon').setAttribute('href', newFaviconURL);
+        window.open('about:blank').location.href = newWebsiteURL;
+    });
+
+    // Handle Open in about:blank button click
+    document.getElementById('openAboutBlankButton').addEventListener('click', function() {
+        const websiteURL = document.getElementById('websiteURL').value;
+        window.open('about:blank').location.href = websiteURL;
+    });
+
+    // Handle Go back button click
+    document.getElementById('goBackButton').addEventListener('click', function() {
+        window.location.href = 'https://educationedue.github.io/courses';
+    });
+    </script>
+</body>
+</html>
