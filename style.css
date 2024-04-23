@@ -1,25 +1,43 @@
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-    50% {
-        text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff;
-    }
-    100% {
-        text-shadow: 0 0 30px #fff, 0 0 40px #ff00ff;
+    to {
+        opacity: 1;
     }
 }
 
 .heading {
     text-align: center;
     margin-top: 25px;
-    animation: slideInFromTop 1s ease-in-out, glow 2s infinite alternate; /* Combining slide-in and glowing animations */
+    animation: slideInFromTop 1s ease-in-out; /* Slide in from the top animation */
 }
 
-body {
-    background: linear-gradient(to right, #ff00ff, #f5ff00); /* Animated gradient background */
+@keyframes slideInFromTop {
+    from {
+        margin-top: -100px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 25px;
+        opacity: 1;
+    }
+}
+
+a {
     color: white;
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+    color: lightgray;
 }
