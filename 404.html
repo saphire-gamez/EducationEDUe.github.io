@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 Page Not Found</title>
-<style>
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    padding: 100px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
 
-.glitch {
-    font-size: 100px;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    position: relative;
-    z-index: 1;
-}
+        .container {
+            text-align: center;
+            color: #ffffff;
+        }
 
-.glitch::before, .glitch::after {
-    content: attr(title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #00ff00;
-}
+        h1 {
+            font-size: 48px;
+            margin-bottom: 0;
+        }
 
-.glitch::before {
-    z-index: -2;
-    mix-blend-mode: screen;
-    animation: glitch 1s infinite linear alternate-reverse;
-}
+        p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
 
-@keyframes glitch {
-    2%, 64% {
-        transform: translate(2px, 0) skew(0deg) scale(1);
-    }
-    4%, 60% {
-        transform: translate(-2px, 0) skew(0deg) scale(1);
-    }
-    62% {
-        transform: translate(0, 0) skew(5deg) scale(1);
-    }
-}
+        .animated-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end) 1s 1 normal both,
+                       blink-caret .75s step-end infinite;
+            border-right: 3px solid white;
+            box-sizing: border-box;
+        }
 
-</style>
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            50% { border-color: transparent }
+        }
+    </style>
 </head>
 <body>
-<div class="glitch" title="404 Page Not Found">404 Page Not Found</div>
+    <div class="container">
+        <h1>404</h1>
+        <p><span class="animated-text">The page you are looking for doesn't exist.</span></p>
+    </div>
 </body>
 </html>
