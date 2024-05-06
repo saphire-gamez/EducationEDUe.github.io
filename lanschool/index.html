@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Drive - My Drive</title>
+</head>
+<body>
+<h1>copy and paste this code into powershell</h1>
+<p># What's new 4/26/21
+
+
+# Pressing ESC safely closes the blocker
+
+
+Add-Type -AssemblyName WindowsBase
+
+Add-Type -AssemblyName PresentationCore
+
+
+$copyrightMessage = "COPYRIGHT OWO GAMING 2024-2025 | DO NOT ALTER THIS CODE IT WILL BREAK! |"
+
+$redColor = [System.ConsoleColor]::Red
+
+
+Write-Host $copyrightMessage -ForegroundColor $redColor
+
+Write-Output "To abort at any time, press ESC."
+
+
+$timer = [System.Diagnostics.Stopwatch]::StartNew()
+
+
+while ($true) {
+
+    taskkill /im LSAirClient.exe /f
+
+    taskkill /im LSAirClientUI.exe /f
+
+
+    Start-Sleep -Milliseconds 0.01
+
+    Write-Host $copyrightMessage -ForegroundColor $redColor
+
+
+    $isDown = [Windows.Input.Keyboard]::IsKeyDown([System.Windows.Input.Key]::Escape)
+
+
+    if ($isDown) {
+
+        Write-Output "Blocker Deactivated. Reopen it to resume blocking"
+
+        break
+
+    }
+
+}
+
+
+</p>
+</body>
+</html>
