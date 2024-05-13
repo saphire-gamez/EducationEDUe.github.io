@@ -47,7 +47,7 @@ a:hover {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px 0;
-    background-color: #f9f9f9;
+    background-color: #000000;
     text-align: center;
 }
 
@@ -58,5 +58,5 @@ a:hover {
 }
 
 .ad a:hover {
-    color: grey; /* Change hover color as needed */
+    color: gray; /* Change hover color as needed */
 }
