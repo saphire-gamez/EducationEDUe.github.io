@@ -52,11 +52,11 @@ a:hover {
 }
 
 .ad a {
-    color: blue; /* Change color as needed */
+    color: white; /* Change color as needed */
     text-decoration: none;
     transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .ad a:hover {
-    color: lightblue; /* Change hover color as needed */
+    color: grey; /* Change hover color as needed */
 }
