@@ -41,3 +41,22 @@ a {
 a:hover {
     color: lightgray;
 }
+
+/* CSS for ads */
+.ad {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.ad a {
+    color: blue; /* Change color as needed */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.ad a:hover {
+    color: lightblue; /* Change hover color as needed */
+}
