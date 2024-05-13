@@ -52,7 +52,7 @@ a:hover {
 }
 
 .ad a {
-    color: lightblue; /* Change color as needed */
+    color: DodgerBlue; /* Change color as needed */
     text-decoration: none;
     transition: color 0.3s ease; /* Smooth color transition on hover */
 }
